@@ -2,19 +2,31 @@ package ElaheHosseini_HW12_Maktab33.Q1;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Scanner;
 
 public class UnfitPairDeletion {
     public static void main(String[] args) {
         IntComparator comparator = new IntComparator();
         ArrayList<Integer> pairs = new ArrayList<>();
-        pairs.add(9);
-        pairs.add(2);
-        pairs.add(3);
-        pairs.add(4);
-        pairs.add(2);
-        pairs.add(2);
-        pairs.add(1);
-        System.out.println(deleteUnfitPairs(pairs, comparator).toString());
+        fillTheList(pairs);
+        System.out.println("Result List: " + deleteUnfitPairs(pairs, comparator).toString());
+    }
+
+    public static ArrayList<Integer> fillTheList(ArrayList<Integer> integerArrayList) {
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        while (!input.equals("q")) {
+            System.out.println("Please enter an Integer number or enter 'q' to end...");
+            input = scanner.next();
+            if (!input.equals("q")) {
+                try {
+                    integerArrayList.add(Integer.parseInt(input));
+                } catch (Exception e) {
+                    System.out.println("__BAD INPUT!__");
+                }
+            }
+        }
+        return integerArrayList;
     }
 
     public static ArrayList<Integer> deleteUnfitPairs(ArrayList<Integer> pairs, Comparator comparator) {
