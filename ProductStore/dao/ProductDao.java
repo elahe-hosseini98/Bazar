@@ -1,7 +1,7 @@
-package ElaheHosseini_HW10_Maktab33.ProductStore.dao;
+package ElaheHosseini_HW12_Maktab33.ProductStore.dao;
 
-import ElaheHosseini_HW10_Maktab33.ProductStore.dto.Product;
-import ElaheHosseini_HW10_Maktab33.ProductStore.dto.ProductType;
+import ElaheHosseini_HW12_Maktab33.ProductStore.dto.Product;
+import ElaheHosseini_HW12_Maktab33.ProductStore.dto.ProductType;
 
 import java.sql.*;
 import java.util.ArrayList;

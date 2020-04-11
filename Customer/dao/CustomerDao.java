@@ -1,6 +1,6 @@
-package ElaheHosseini_HW10_Maktab33.Customer.dao;
+package ElaheHosseini_HW12_Maktab33.Customer.dao;
 
-import ElaheHosseini_HW10_Maktab33.Customer.dto.Customer;
+import ElaheHosseini_HW12_Maktab33.Customer.dto.Customer;
 
 import java.sql.*;
 

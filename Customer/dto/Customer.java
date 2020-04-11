@@ -1,6 +1,6 @@
-package ElaheHosseini_HW10_Maktab33.Customer.dto;
+package ElaheHosseini_HW12_Maktab33.Customer.dto;
 
-import ElaheHosseini_HW10_Maktab33.ProductStore.dto.Product;
+import ElaheHosseini_HW12_Maktab33.ProductStore.dto.Product;
 
 import java.util.ArrayList;
 

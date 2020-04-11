@@ -1,4 +1,4 @@
-package ElaheHosseini_HW10_Maktab33.ProductStore.dto;
+package ElaheHosseini_HW12_Maktab33.ProductStore.dto;
 
 public enum ProductType {
     Electrical, Shoes, Stationery

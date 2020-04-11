@@ -1,8 +1,8 @@
-package ElaheHosseini_HW10_Maktab33.Panels;
+package ElaheHosseini_HW12_Maktab33.Panels;
 
-import ElaheHosseini_HW10_Maktab33.Customer.dto.Customer;
-import ElaheHosseini_HW10_Maktab33.ProductStore.dao.ProductDao;
-import ElaheHosseini_HW10_Maktab33.ProductStore.dto.Product;
+import ElaheHosseini_HW12_Maktab33.Customer.dto.Customer;
+import ElaheHosseini_HW12_Maktab33.ProductStore.dao.ProductDao;
+import ElaheHosseini_HW12_Maktab33.ProductStore.dto.Product;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
