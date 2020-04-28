@@ -2,6 +2,7 @@ package ElaheHosseini_HW12_Maktab33.Panels;
 
 import ElaheHosseini_HW12_Maktab33.Customer.dto.Customer;
 import ElaheHosseini_HW12_Maktab33.ProductStore.dao.ProductDao;
+import ElaheHosseini_HW12_Maktab33.ProductStore.dto.PriceComparator;
 import ElaheHosseini_HW12_Maktab33.ProductStore.dto.Product;
 
 import java.sql.SQLException;
@@ -152,7 +153,9 @@ public class OnlineShoppingPanel {
     public static void showBasket(Customer customer) {
         float totalPayment = 0;
         int count = 1;
-        for (Product product : customer.getBasket()
+        ArrayList<Product> basketProducts = customer.getBasket();
+        basketProducts.sort(new PriceComparator());
+        for (Product product : basketProducts
         ) {
             System.out.println((count++) + "-" + product.basketProductToString());
             totalPayment += product.getPrice() * product.getNumOfAvailableProducts();
