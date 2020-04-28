@@ -4,14 +4,16 @@ import ElaheHosseini_HW12_Maktab33.ProductStore.dto.Product;
 
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer{
     private String firstName, lastName, phoneNumber, email, address;
+    private int age;
     private ArrayList<Product> basket = new ArrayList<>();
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String phoneNumber, String email, String address) {
+    public Customer(int age, String firstName, String lastName, String phoneNumber, String email, String address) {
+        this.age = age;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -63,6 +65,14 @@ public class Customer {
         return basket;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public void addToBasket(Product product) throws BasketOverFlowException {
         int basketMaxLength = 5;
         int basketCurrentSize = 0;
@@ -82,7 +92,20 @@ public class Customer {
     public void setBasket(ArrayList<Product> basket) {
         this.basket = basket;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
+
 
 class BasketOverFlowException extends Exception {
     public BasketOverFlowException(String message) {

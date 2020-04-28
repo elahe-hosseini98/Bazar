@@ -1,16 +1,33 @@
 package ElaheHosseini_HW12_Maktab33.Panels;
 
+import ElaheHosseini_HW12_Maktab33.Customer.dao.CustomerDao;
+import ElaheHosseini_HW12_Maktab33.Customer.dto.AgeComparator;
+import ElaheHosseini_HW12_Maktab33.Customer.dto.Customer;
 import ElaheHosseini_HW12_Maktab33.ProductStore.dao.ProductDao;
 import ElaheHosseini_HW12_Maktab33.ProductStore.dto.Product;
 import ElaheHosseini_HW12_Maktab33.ProductStore.dto.ProductType;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductStoreAdminPanel {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        addingNewProductIntoStore();
+        String input = "";
+        while (!input.equals("1") && !input.equals("2")) {
+            System.out.println("Please Enter '1' for Adding new product, or '2' for displaying all Customers ordered by their age...");
+            input = scanner.next();
+        }
+        switch (input) {
+            case "1":
+                addingNewProductIntoStore();
+                break;
+            case "2":
+                showAllCustomersOrderedByAge();
+                break;
+        }
     }
 
     public static void addingNewProductIntoStore() {
@@ -63,6 +80,16 @@ public class ProductStoreAdminPanel {
             if (insertResult) {
                 System.out.println("__PRODUCT INSERTED SUCCESSFULLY!");
             }
+        }
+    }
+
+    public static void showAllCustomersOrderedByAge() {
+        CustomerDao customerDao = new CustomerDao();
+        ArrayList<Customer> allCustomers = customerDao.getAllCustomers();
+        allCustomers.sort(new AgeComparator());
+        for (Customer customer : allCustomers
+        ) {
+            System.out.println(customer);
         }
     }
 }

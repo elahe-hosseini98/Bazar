@@ -11,17 +11,20 @@ public class UserSignUpPanel {
     public Customer signUp() {
         System.out.println("__SING-UP FORM__");
         String firstName, lastName, phoneNumber, email, address;
+        int age;
         System.out.println("First Name:");
         firstName = scanner.next();
         System.out.println("Last Name:");
         lastName = scanner.next();
+        System.out.println("Age:");
+        age = scanner.nextInt();
         System.out.println("Phone-Number:");
         phoneNumber = scanner.next();
         System.out.println("Email:");
         email = scanner.next();
         System.out.println("Address:");
         address = scanner.next();
-        Customer customer = new Customer(firstName, lastName, phoneNumber, email, address);
+        Customer customer = new Customer(age, firstName, lastName, phoneNumber, email, address);
         System.out.println(customer.getAddress());
         CustomerDao customerDao = new CustomerDao();
         try {

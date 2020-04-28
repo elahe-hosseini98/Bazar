@@ -3,6 +3,7 @@ package ElaheHosseini_HW12_Maktab33.Customer.dao;
 import ElaheHosseini_HW12_Maktab33.Customer.dto.Customer;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class CustomerDao {
     private final String url = "jdbc:postgresql://localhost/Online_Bazar";
@@ -28,14 +29,15 @@ public class CustomerDao {
             if (!isEmailUnique(customer.getEmail())) {
                 throw new InvalidEmailException("__EMAIL ALREADY EXIST!");
             }
-            String insertQuery = "insert into customer (first_name, last_name, phone_number, email" +
-                    ", address) values (?, ?, ?, ?, ?)";
+            String insertQuery = "insert into customer (age, first_name, last_name, phone_number, email" +
+                    ", address) values (?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
-            preparedStatement.setString(1, customer.getFirstName());
-            preparedStatement.setString(2, customer.getLastName());
-            preparedStatement.setString(3, customer.getPhoneNumber());
-            preparedStatement.setString(4, customer.getEmail());
-            preparedStatement.setString(5, customer.getAddress());
+            preparedStatement.setInt(1, customer.getAge());
+            preparedStatement.setString(2, customer.getFirstName());
+            preparedStatement.setString(3, customer.getLastName());
+            preparedStatement.setString(4, customer.getPhoneNumber());
+            preparedStatement.setString(5, customer.getEmail());
+            preparedStatement.setString(6, customer.getAddress());
             preparedStatement.execute();
             preparedStatement.close();
             connection.close();
@@ -76,6 +78,7 @@ public class CustomerDao {
                 customer.setLastName(resultSet.getString(3));
                 customer.setPhoneNumber(resultSet.getString(4));
                 customer.setAddress(resultSet.getString(6));
+                customer.setAge(resultSet.getInt(7));
                 customer.setEmail(email);
                 preparedStatement.close();
                 connection.close();
@@ -86,6 +89,32 @@ public class CustomerDao {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public ArrayList<Customer> getAllCustomers() {
+        ArrayList<Customer> allCustomers = new ArrayList<>();
+        try {
+            Connection connection = getConnection();
+            String query = "Select * from customer";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Customer customer = new Customer();
+                customer.setFirstName(resultSet.getString(2));
+                customer.setLastName(resultSet.getString(3));
+                customer.setPhoneNumber(resultSet.getString(4));
+                customer.setAddress(resultSet.getString(6));
+                customer.setAge(resultSet.getInt(7));
+                customer.setEmail(resultSet.getString(5));
+                allCustomers.add(customer);
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return allCustomers;
     }
 }
 
