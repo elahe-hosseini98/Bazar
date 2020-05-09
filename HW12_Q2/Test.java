@@ -1,4 +1,4 @@
-package ElaheHosseini_HW12_Maktab33.Q2;
+package ElaheHosseini_HW12_Maktab33.HW12_Q2;
 
 import java.util.Scanner;
 
@@ -11,6 +11,7 @@ public class Test {
     }
 
     public static void haveSamePermutationsTest(Permutation permutation) {
+        System.out.println("Checking equality of two strings:");
         String word1 = getStringFromUser();
         String word2 = getStringFromUser();
         if (permutation.haveSamePermutations(word1, word2)) {
@@ -22,7 +23,7 @@ public class Test {
 
     public static String getStringFromUser() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter a String of characters:");
+        System.out.println("Please enter a String:");
         return scanner.next();
     }
 }

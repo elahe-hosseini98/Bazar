@@ -1,15 +1,29 @@
-package ElaheHosseini_HW12_Maktab33.Q2;
+package ElaheHosseini_HW12_Maktab33.HW12_Q2;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Permutation {
 
-    public ArrayList<String> printAllPermutation(String word) {
-        ArrayList<String> allPermutation = new ArrayList<>();
-        //todo
-        return allPermutation;
+    public void getAllPermutation(String word) {
+        printPermutation(word, "");
+    }
+
+    public void printPermutation(String str, String ans) {
+        if (str.length() == 0) {
+            System.out.print(ans + " ");
+            return;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+
+            char ch = str.charAt(i);
+
+            String ros = str.substring(0, i) +
+                    str.substring(i + 1);
+
+            printPermutation(ros, ans + ch);
+        }
+
     }
 
     public boolean haveSamePermutations(String word1, String word2) {

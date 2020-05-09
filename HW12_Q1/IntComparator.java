@@ -1,4 +1,4 @@
-package ElaheHosseini_HW12_Maktab33.Q1;
+package ElaheHosseini_HW12_Maktab33.HW12_Q1;
 
 import java.util.Comparator;
 
