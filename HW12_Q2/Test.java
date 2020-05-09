@@ -6,6 +6,7 @@ public class Test {
     static String separatorLine = "_________________________________________";
     public static void main(String[] args) {
         Permutation permutation = new Permutation();
+        printAllPermutation(permutation);
         haveSamePermutationsTest(permutation);
         System.out.println(separatorLine);
     }
@@ -19,6 +20,12 @@ public class Test {
         } else {
             System.out.println("Fail");
         }
+    }
+
+    public static void printAllPermutation(Permutation permutation) {
+        System.out.println("Print All Permutation for a String:");
+        String word =  getStringFromUser();
+        permutation.getAllPermutation(word);
     }
 
     public static String getStringFromUser() {

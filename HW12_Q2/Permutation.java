@@ -8,7 +8,7 @@ public class Permutation {
         printPermutation(word, "");
     }
 
-    public void printPermutation(String str, String ans) {
+    private void printPermutation(String str, String ans) {
         if (str.length() == 0) {
             System.out.print(ans + " ");
             return;
@@ -37,7 +37,7 @@ public class Permutation {
         return true;
     }
 
-    public HashMap<Character, Integer> getCharFrequency(String word) {
+    private HashMap<Character, Integer> getCharFrequency(String word) {
         HashMap<Character, Integer> charFrequency = new HashMap<>();
         for (char character : word.toCharArray()
         ) {
